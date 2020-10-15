@@ -1,0 +1,75 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>page get id</title>
+		<!-- l'appel de {$url_base} vous permet de recupérer le chemin de votre site web  -->
+		<link type="text/css" rel="stylesheet" href="{$url_base}public/css/bootstrap.min.css"/>
+		<link type="text/css" rel="stylesheet" href="{$url_base}public/css/samane.css"/>
+		<style>
+			h1{ 
+				color: #40007d;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="{$url_base}public/image/logo.jpg" class="resize" />
+        <div class="nav navbar navbar-default navbar-fixed-top">
+            <ul class="nav navbar-nav">
+                <!-- l'appel de {$url_base} vous permet de recupérer le chemin de votre site web  -->
+                <li><a href="{$url_base}declaration/liste">Declaration</a></li>
+                <li><a href="{$url_base}service/liste">service</a></li>
+                <li><a href="{$url_base}contact/liste">contact</a></li>
+            </ul>
+        </div>
+		<div class="col-md-8 col-xs-12 col-md-offset-2" style="margin-top:10px;">
+			<div class="panel panel-info">
+				<div class="panel-heading">FORMULAIRE SERVICE</div>
+				<div class="panel-body">
+					{if isset($ok)}
+						{if $ok != 0}
+							<div class="alert alert-success">Données ajoutées!</div>
+						{else}
+							<div class="alert alert-danger">Erreur!</div>
+						{/if}
+					{/if}
+					<form method="post" action="{$url_base}service/add">
+						<div class="form-group">
+							<label class="control-label">Nom</label>
+							<input class="form-control" type="text" name="nom" id="nom"/>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Prenom</label>
+							<input class="form-control" type="text" name="prenom" id="prenom"/>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Telephone</label>
+							<input class="form-control" type="text" name="tel" id="tel"/>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Adress</label>
+							<input class="form-control" type="text" name="adress" id="adress"/>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Email</label>
+							<input class="form-control" type="text" name="email" id="email"/>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Type</label>
+							<input class="form-control" type="text" name="type" id="type"/>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Description</label>
+							<input class="form-control" type="text" name="description" id="description"/>
+						</div>
+
+						<div class="form-group">
+							<input class="btn btn-success" type="submit" name="valider" value="ENvoyer"/>
+							<input class="btn btn-danger" type="reset" name="annuler" value="Annuler"/>
+						</div>
+					</form>
+				</div>
+                <a href="{$url_base}service/liste">Retour </a>
+			</div>
+		</div>
+	</body>
+</html>

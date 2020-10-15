@@ -1,0 +1,58 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>page liste</title>
+	<!-- l'appel de {$url_base} vous permet de recupérer le chemin de votre site web  -->
+	<link type="text/css" rel="stylesheet" href="{$url_base}public/css/bootstrap.min.css"/>
+	<link type="text/css" rel="stylesheet" href="{$url_base}public/css/samane.css"/>
+	<style>
+		h1{
+			color: #40007d;
+		}
+	</style>
+</head>
+<body>
+<div class="nav navbar navbar-default navbar-fixed-top">
+	<ul class="nav navbar-nav">
+		<!-- l'appel de {$url_base} vous permet de recupérer le chemin de votre site web  -->
+		<li><a href="{$url_base}declaration/liste">Produit</a></li>
+		<li><a href="{$url_base}service/liste">service</a></li>
+		<li><a href="{$url_base}contact/liste">Contact</a></li>
+	</ul>
+</div>
+<div class="col-md-8 col-xs-12 col-md-offset-2" style="margin-top:150px;">
+	<div class="panel panel-info">
+		<div class="panel-heading">BIENVENUE A VOTRE MODELE MVC</div>
+		<div class="panel-body">
+			{if isset($declarations)}
+			{if $declarations != null}
+			<table class="table table-bordered table-stripped">
+
+				{foreach from=$declarations item=declaration}
+				<tr>
+					<img style="width: 200px;height: 100px;border-radius: 500px;" src = "'.$declaration['pic'].'"/></br>
+					{$declaration['id']}</br>
+					{$declaration['nom']}</rb>
+					{$declaration['prenom']}</br>
+					{$declaration['tel']}</br>
+					{$declaration['adress']}</br>
+					{$declaration['info']}</br>
+					{$declaration['email']}
+					<td>
+						<a href="{$url_base}declaration/delete/{$declaration['id']}">Supprimer</a></br>
+						<a href="{$url_base}declaration/edit/{$declaration['id']}">Editer</a></br>
+					</td>
+				</tr>
+				{/foreach}
+			</table>
+			{else}
+			Liste vide
+			{/if}
+			{/if}
+		</div>
+		<a href="{$url_base}declaration/add">Ajout d'un Objet</a>
+	</div>
+</div>
+
+</body>
+</html>

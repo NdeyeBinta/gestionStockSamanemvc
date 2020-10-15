@@ -1,0 +1,67 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>page liste</title>
+	<!-- l'appel de {$url_base} vous permet de recupérer le chemin de votre site web  -->
+	<link type="text/css" rel="stylesheet" href="{$url_base}public/css/bootstrap.min.css"/>
+	<link type="text/css" rel="stylesheet" href="{$url_base}public/css/samane.css"/>
+	<style>
+		h1{
+			color: #40007d;
+		}
+	</style>
+</head>
+<body>
+<div class="nav navbar navbar-default navbar-fixed-top">
+	<ul class="nav navbar-nav">
+		<!-- l'appel de {$url_base} vous permet de recupérer le chemin de votre site web  -->
+		<li><a href="{$url_base}produit/liste">Produit</a></li>
+		<li><a href="{$url_base}service/liste">service</a></li>
+		<li><a href="{$url_base}contact/liste">Contact</a></li>
+	</ul>
+</div>
+<div class="col-md-8 col-xs-12 col-md-offset-2" style="margin-top:150px;">
+	<div class="panel panel-info">
+		<div class="panel-heading">BIENVENUE A VOTRE MODELE MVC</div>
+		<div class="panel-body">
+			{if isset($services)}
+			{if $services != null}
+			<table class="table table-bordered table-stripped">
+				<tr>
+					<th>Identifiant</th>
+					<th>Nom</th>
+					<th>Prenom </th>
+					<th>Tel</th>
+					<th>Adress</th>
+					<th>Email</th>
+					<th>Type</th>
+					<th>Description</th>
+					<th>Action</th>
+					<th>Action</th>
+				</tr>
+				{foreach from=$services item=service}
+				<tr>
+					<td>{$service['id']}</td>
+					<td>{$service['nom']}</td>
+					<td>{$service['prenom']}</td>
+					<td>{$service['tel']}</td>
+					<td>{$service['adress']}</td>
+					<td>{$service['email']}</td>
+					<td>{$service['type']}</td>
+					<td>{$service['description']}</td>
+					<td><a href="{$url_base}service/delete/{$service['id']}">Supprimer</a></td>
+					<td><a href="{$url_base}service/edit/{$service['id']}">Editer</a></td>
+				</tr>
+				{/foreach}
+			</table>
+			{else}
+			Liste vide
+			{/if}
+			{/if}
+		</div>
+		<a href="{$url_base}service/add">Ajout d'un Service</a>
+	</div>
+</div>
+
+</body>
+</html>

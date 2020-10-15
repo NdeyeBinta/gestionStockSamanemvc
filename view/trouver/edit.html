@@ -1,0 +1,70 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>page get id</title>
+		<!-- l'appel de {$url_base} vous permet de recupérer le chemin de votre site web  -->
+		<link type="text/css" rel="stylesheet" href="{$url_base}public/css/bootstrap.min.css"/>
+		<link type="text/css" rel="stylesheet" href="{$url_base}public/css/samane.css"/>
+		<style>
+			h1{ 
+				color: #40007d;
+			}
+		</style>
+	</head>
+	<body>
+		<img src="{$url_base}public/image/logo.jpg" class="resize" />
+        <div class="nav navbar navbar-default navbar-fixed-top">
+            <ul class="nav navbar-nav">
+                <!-- l'appel de {$url_base} vous permet de recupérer le chemin de votre site web  -->
+				<li><a href="{$url_base}declaration/liste">Produit</a></li>
+				<li><a href="{$url_base}service/liste">service</a></li>
+				<li><a href="{$url_base}contact/liste">Contact</a></li>
+            </ul>
+        </div>
+		<div class="col-md-8 col-xs-12 col-md-offset-2" style="margin-top:150px;">
+			<div class="panel panel-info">
+				<div class="panel-heading">BIENVENUE A VOTRE MODELE MVC</div>
+				<div class="panel-body">
+					<form method="post" action="{$url_base}Trouver/update">
+						<div class="form-group">
+							<label class="control-label">ID du Contact</label>
+							<input class="form-control" type="text" name="id" id="id" value="{if isset($trouver)} {$trouver['id']} {/if}"/>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Titre de l'article</label>
+							<input class="form-control" type="text" name="titre" id="titre" value="{if isset($trouver)} {$trouver['nom']} {/if}"/>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Categorie</label>
+							<input class="form-control" type="text" name="categorie" id="categorie" value="{if isset($trouver)} {$trouver['prenom']} {/if}"/>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Information Suplementaire</label>
+							<input class="form-control" type="text" name="info" id="info" value="{if isset($trouver)} {$trouver['message']} {/if}"/>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Telephone</label>
+							<input class="form-control" type="text" name="tel" id="tel" value="{if isset($trouver)} {$trouver['tel']} {/if}"/>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Adress</label>
+							<input class="form-control" type="text" name="adress" id="adress" value="{if isset($trouver)} {$trouver['adress']} {/if}"/>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Email</label>
+							<input class="form-control" type="text" name="email" id="email" value="{if isset($trouver)} {$trouver['email']} {/if}"/>
+						</div>
+						<div class="form-group">
+							<label class="control-label">Image</label>
+							<input class="form-control" type="text" name="pic" id="pic" value="{if isset($trouver)} {$trouver['email']} {/if}"/>
+						</div>
+						<div class="form-group">
+							<input class="btn btn-success" type="submit" name="modifier" value="Modifier"/>
+							<a class="btn btn-primary" href="{$url_base}Trouver/liste">Retour</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

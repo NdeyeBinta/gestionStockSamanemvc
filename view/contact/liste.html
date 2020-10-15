@@ -1,0 +1,65 @@
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>page liste</title>
+		<!-- l'appel de {$url_base} vous permet de recupérer le chemin de votre site web  -->
+		<link type="text/css" rel="stylesheet" href="{$url_base}public/css/bootstrap.min.css"/>
+		<link type="text/css" rel="stylesheet" href="{$url_base}public/css/samane.css"/>
+		<style>
+			h1{
+				color: #40007d;
+			}
+		</style>
+	</head>
+	<body>
+    <div class="nav navbar navbar-default navbar-fixed-top">
+        <ul class="nav navbar-nav">
+            <!-- l'appel de {$url_base} vous permet de recupérer le chemin de votre site web  -->
+            <li><a href="{$url_base}declaration/liste">Declaration</a></li>
+            <li><a href="{$url_base}service/liste">service</a></li>
+			<li><a href="{$url_base}contact/liste">Contact</a></li>
+        </ul>
+    </div>
+		<div class="col-md-8 col-xs-12 col-md-offset-2" style="margin-top:10px;">
+			<div class="panel panel-info">
+				<div class="panel-heading">BIENVENUE A VOTRE MODELE MVC</div>
+				<div class="panel-body">
+					{if isset($contacts)}
+						{if $contacts != null}
+							<table class="table table-bordered table-stripped">
+								<tr>
+									<th>Identifiant</th>
+									<th>Nom</th>
+									<th>Prenom </th>
+									<th>Tel</th>
+									<th>Adress</th>
+									<th>Email</th>
+									<th>Message</th>
+									<th>Action</th>
+									<th>Action</th>
+								</tr>
+								{foreach from=$contacts item=contact}
+									<tr>
+										<td>{$contact['id']}</td>
+										<td>{$contact['nom']}</td>
+										<td>{$contact['prenom']}</td>
+										<td>{$contact['tel']}</td>
+										<td>{$contact['adress']}</td>
+										<td>{$contact['email']}</td>
+										<td>{$contact['message']}</td>
+										<td><a href="{$url_base}contact/delete/{$contact['id']}">Supprimer</a></td>
+										<td><a href="{$url_base}contact/edit/{$contact['id']}">Editer</a></td>
+									</tr>
+								{/foreach}
+							</table>
+						{else}
+							Liste vide
+						{/if}
+					{/if}
+				</div>
+				<a href="{$url_base}contact/add">Ajout d'un Contact</a>
+			</div>
+		</div>
+
+	</body>
+</html>
